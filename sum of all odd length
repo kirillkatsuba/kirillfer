@@ -1,0 +1,15 @@
+class Solution:
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        summ = sum(arr)
+        if len(arr) == 1 or len(arr) == 2:
+            return summ 
+        elif len(arr) == 3:
+            return 2 * summ
+        elif len(arr) % 2 == 0 and len(arr) > 2:
+            n = len(arr) - 1
+        else:
+            n = len(arr)
+        for i in range(2, n + 1, 2):
+                summ += sum(arr[j:j + i + 1])
+                print(summ)
+        return summ
